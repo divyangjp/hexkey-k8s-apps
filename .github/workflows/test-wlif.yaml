@@ -18,7 +18,7 @@ jobs:
       name: 'Authenticate to Google Cloud'
       uses: 'google-github-actions/auth@v0'
       with:
-        workload_identity_provider: ${{ secret.PROVIDER_NAME }}
+        workload_identity_provider: ${{ secrets.PROVIDER_NAME }}
         service_account: ${{ secrets.GH_SA_EMAIL }}
 
     - id: 'list buckets'
