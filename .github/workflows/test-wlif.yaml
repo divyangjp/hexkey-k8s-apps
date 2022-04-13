@@ -1,0 +1,27 @@
+name: 'Test Workload Identity'
+on:
+  push:
+    branches:
+    - 'master'
+jobs:
+  run:
+    name: 'Test Workload Identity'
+    permissions:
+      id-token: write
+      contents: read
+    runs-on: 'ubuntu-latest'
+
+    steps:
+    - uses: 'actions/checkout@v3'
+
+    - id: 'auth'
+      name: 'Authenticate to Google Cloud'
+      uses: 'google-github-actions/auth@v0'
+      with:
+        workload_identity_provider: ${{ secret.PROVIDER_NAME }}
+        service_account: ${{ secrets.GH_SA_EMAIL }}
+
+    - id: 'list buckets'
+      run: |-
+        curl https://storage.googleapis.com/storage/v1/b \
+          --header "Authorization: Bearer ${{ steps.auth.outputs.access_token }}"
