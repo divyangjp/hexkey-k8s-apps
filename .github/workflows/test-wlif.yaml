@@ -21,6 +21,12 @@ jobs:
         workload_identity_provider: ${{ secrets.PROVIDER_NAME }}
         service_account: ${{ secrets.GH_SA_EMAIL }}
 
+    - id: 'gcloud'
+      name: 'gcloud'
+      run: |-
+        gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
+        gcloud services list
+
     - id: 'list-buckets'
       run: |-
         curl https://storage.googleapis.com/storage/v1/b \
