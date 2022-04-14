@@ -26,8 +26,7 @@ jobs:
       run: |-
         gcloud container clusters get-credentials private --region=australia-southeast1 --project hexkey
 
-    - id: 'get-kubectl'
-      name: 'Get Kubectl'
-      uses: actions-hub/kubectl@master
-      with:
-        args: get pods -n default
+    - id: 'kubectl'
+      name: 'Use Kubectl'
+      run: |-
+        kubectl get pods -n default
