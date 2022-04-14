@@ -32,8 +32,9 @@ jobs:
     - id: 'helm-deploy'
       name: 'Use Helm to deploy csi driver'
       run: |-
+        kubectl create ns platform-csi-driver
         helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
-        helm install csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver --namespace kube-system
+        helm install csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver --namespace platform-csi-driver
 
     #- id: 'helm-deploy'
     #  name: 'Use Helm to deploy csi driver'
