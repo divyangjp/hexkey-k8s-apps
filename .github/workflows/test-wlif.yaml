@@ -30,3 +30,4 @@ jobs:
       name: 'Use Kubectl'
       run: |-
         kubectl get pods -n default
+        kubectl apply -f ./apps/weather
