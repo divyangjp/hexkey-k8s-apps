@@ -1,11 +1,11 @@
-name: 'Test Workload Identity'
+name: 'Deploy Weather App'
 on:
   push:
     branches:
     - 'master'
 jobs:
   run:
-    name: 'Test Workload Identity'
+    name: 'Deploy Weather App'
     permissions:
       id-token: write
       contents: read
@@ -26,8 +26,8 @@ jobs:
       run: |-
         gcloud container clusters get-credentials private --region=australia-southeast1 --project hexkey
 
-    - id: 'kubectl'
-      name: 'Use Kubectl'
+    - id: 'kubectl-deploy'
+      name: 'Use Kubectl to deploy weather app'
       run: |-
         kubectl get pods -n default
         kubectl apply -f ./apps/weather
