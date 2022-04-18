@@ -29,6 +29,12 @@ spec:
             port: 80
           initialDelaySeconds: 10
           timeoutSeconds: 2
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 5
       # CRUDE way to access secrets
       # csi-driver is best practice to access secrets
       # but gke Autopilot mode doesn't allow priviledged containers
