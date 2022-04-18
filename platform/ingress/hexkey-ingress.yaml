@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hexkey-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: hexkey-address
+    networking.gke.io/managed-certificates: hexkey-managed-cert
+    kubernetes.io/ingress.class: "gce"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /weather/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: weatherservice
+            port:
+              number: 8080
