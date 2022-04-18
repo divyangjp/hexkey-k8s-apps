@@ -19,16 +19,20 @@ spec:
         image: dfranciswoolies/ciarecruitment-bestapiever:247904
         ports:
         - containerPort: 80
+        # THIS IS BLasphemy
+        env:
+        - name: APIKEY
+          value: 1997-07-16
       # CRUDE way to access secrets
       # csi-driver is best practice to access secrets
       # but gke Autopilot mode doesn't allow priviledged containers
-      - name: secrets
-        image: gcr.io/google.com/cloudsdktool/cloud-sdk
-        args:
-        - echo "APIKEY=$(gcloud secrets versions access latest --secret=\"APIKEY\")" >> apikey.env
-        volumeMounts:
-        - name: config-data
-          mountPath: /data
-      volumes:
-      - name: config-data
-        emptyDir: {}
+      #- name: secrets
+      #  image: gcr.io/google.com/cloudsdktool/cloud-sdk
+      #  args:
+      #  - echo "APIKEY=$(gcloud secrets versions access latest --secret=\"APIKEY\")" >> apikey.env
+      #  volumeMounts:
+      #  - name: config-data
+      #    mountPath: /data
+      #volumes:
+      #- name: config-data
+      #  emptyDir: {}
