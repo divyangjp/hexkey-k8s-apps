@@ -10,7 +10,7 @@ spec:
   rules:
   - http:
       paths:
-      - path: /weather/*
+      - path: /*
         pathType: ImplementationSpecific
         backend:
           service:
