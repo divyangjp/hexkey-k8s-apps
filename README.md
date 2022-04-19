@@ -27,5 +27,5 @@ terraform apply --var-file=./env/prod.tfvars
 
 ## Weather App
 
-Deployed Weather App URL -> https://hexkey.io/weatherforecast
+Deployed Weather App URL -> https://hexkey.io/weatherforecast   
 Health -> https://hexkey.io/health
