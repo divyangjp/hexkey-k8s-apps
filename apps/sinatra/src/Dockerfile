@@ -11,6 +11,6 @@ COPY --chown=nonroot-user ./* ./
 
 RUN bundle install
 
-EXPOSE 9292
+EXPOSE 80
 
-CMD ["bundle", "exec", "rackup", "--host", "0.0.0.0"]
+CMD ["bundle", "exec", "rackup", "-p", "80", "--host", "0.0.0.0"]
