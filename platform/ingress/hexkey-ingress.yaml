@@ -10,10 +10,17 @@ spec:
   rules:
   - http:
       paths:
-      - path: /*
+      - path: /weatherforecast
         pathType: ImplementationSpecific
         backend:
           service:
             name: weatherservice
+            port:
+              number: 8080
+      - path: /sinatra
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: sinatraservice
             port:
               number: 8080

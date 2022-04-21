@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sinatra-deployment
+  labels:
+    app: sinatra
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sinatra
+  template:
+    metadata:
+      labels:
+        app: sinatra
+    spec:
+      containers:
+      - name: sinatra
+        image: divyangjp/dp-sinatra:latest
+        ports:
+        - containerPort: 9292
