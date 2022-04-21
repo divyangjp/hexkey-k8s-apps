@@ -1,11 +1,11 @@
-name: master-build-push
+name: Sinatra Build Push Master
 
 on:
   push:
     branches:
       - "master"
     paths:
-      - "/apps/sinatra/src/**"
+      - "apps/sinatra/src/**"
 
 jobs:
 
