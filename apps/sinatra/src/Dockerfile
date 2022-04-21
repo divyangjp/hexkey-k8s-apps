@@ -1,3 +1,4 @@
+# Docker build
 FROM ruby:2.6.3-alpine3.10
 
 RUN adduser -D nonroot-user

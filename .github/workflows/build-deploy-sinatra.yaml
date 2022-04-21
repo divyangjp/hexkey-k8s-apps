@@ -34,6 +34,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: .
+          context: ./apps/sinatra/src/
+          dockerfile: ./apps/sinatra/src/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/dp-sinatra:${{steps.sha_tag.outputs.short_sha}}
