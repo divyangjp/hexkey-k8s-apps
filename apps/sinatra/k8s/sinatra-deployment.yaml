@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: sinatra
-        image: divyangjp/dp-sinatra:latest
+        image: divyangjp/dp-sinatra:1de6571
         ports:
         - containerPort: 9292
