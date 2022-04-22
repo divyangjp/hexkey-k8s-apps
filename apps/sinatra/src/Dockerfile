@@ -13,4 +13,4 @@ RUN bundle install
 
 EXPOSE 80
 
-CMD ["bundle", "exec", "rackup", "-p", "80", "--host", "0.0.0.0"]
+CMD ["bundle", "exec", "rackup", "-p", "8080", "--host", "0.0.0.0"]
