@@ -16,6 +16,18 @@ spec:
     spec:
       containers:
       - name: sinatra
-        image: divyangjp/dp-sinatra:1de6571
+        image: divyangjp/dp-sinatra:89c7cfb
         ports:
-        - containerPort: 9292
+        - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 10
+          timeoutSeconds: 2
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 5
