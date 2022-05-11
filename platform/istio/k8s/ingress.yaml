@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingressgateway
+  namespace: istio-system
+  annotations:
+    kubernetes.io/ingress.class: gce
+    kubernetes.io/ingress.global-static-ip-name: hexkey-address
+    networking.gke.io/managed-certificates: hexkey-managed-cert
+    networking.gke.io/v1beta1.FrontendConfig: http-redirect
+spec:
+  backend:
+    serviceName: istio-ingressgateway
+    servicePort: 80

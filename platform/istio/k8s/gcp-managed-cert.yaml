@@ -1,0 +1,9 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: hexkey-managed-cert
+  namespace: istio-system
+spec:
+  domains:
+    - hexkey.io
+    - www.hexkey.io
