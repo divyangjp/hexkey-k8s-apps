@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingressgateway
@@ -9,6 +9,8 @@ metadata:
     networking.gke.io/managed-certificates: hexkey-managed-cert
     networking.gke.io/v1beta1.FrontendConfig: http-redirect
 spec:
-  backend:
-    serviceName: istio-ingressgateway
-    servicePort: 80
+  defaultBackend:
+    service:
+      name: istio-ingressgateway
+      port:
+        number: 80
