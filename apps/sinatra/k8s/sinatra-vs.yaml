@@ -1,0 +1,20 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: sinatra-vs
+  namespace: default
+spec:
+  gateways:
+  - istio-system/istio-ingressgateway
+  hosts:
+  - hexkey.io
+  http:
+  - name: "sinatra-routes"
+    match:
+    - uri:
+        prefix: "/sinatra/sinatra"
+    rewrite:
+      uri: "/sinatra"
+    route:
+    - destination:
+        host: sinatraservice.default.svc.cluster.local
