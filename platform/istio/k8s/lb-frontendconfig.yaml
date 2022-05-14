@@ -6,4 +6,4 @@ metadata:
 spec:
   redirectToHttps:
     enabled: true
-    responseCodeName: PERMANENT_REDIRECT
+    responseCodeName: MOVED_PERMANENTLY_DEFAULT
